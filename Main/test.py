@@ -1,6 +1,20 @@
 import tensorflow as tf
+from tensorflow import keras
 
-# creates nodes in a graph
-# "construction phase"
-x1 = tf.constant(5)
-x2 = tf.constant(6)
+# Helper libraries
+import numpy as np
+import matplotlib.pyplot as plt
+
+print(tf.__version__)
+fashion_mnist = keras.datasets.fashion_mnist
+
+(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 
+               'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+plt.figure()
+plt.imshow(train_images[0])
+plt.colorbar()
+plt.grid(False)
+train_images = train_images / 255.0
+
+test_images = test_images / 255.0
